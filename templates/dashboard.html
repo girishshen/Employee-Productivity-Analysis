@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Employee Productivity Dashboard</title>
+  <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+
+  <header class="dashboard-header">
+    <h1>Employee Productivity Dashboard</h1>
+  </header>
+
+  <main class="dashboard-container">
+    <!-- Insights Section -->
+    <section class="insights">
+      <h2>Key Insights</h2>
+      {% for key, val in insights.items() %}
+        <div class="insight-box fade-in">
+          <h3>{{ key.replace('_', ' ').title() }}</h3>
+          <p>{{ val }}</p>
+        </div>
+      {% endfor %}
+    </section>
+
+    <!-- Department Performance Table -->
+    <section class="performance">
+      <h2>Department Performance</h2>
+      <div class="table-wrapper fade-in">
+        <table class="performance-table">
+          <thead>
+            <tr>
+              <th>Department</th>
+              <th>Avg. Performance Score</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for dept in department_performance %}
+              <tr class="performance-row">
+                <td>{{ dept['Department'] }}</td>
+                <td>{{ dept['Performance_Score'] | round(2) }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Visual Charts -->
+    <section class="charts">
+      <h2>Visualizations</h2>
+
+      <div class="chart-container fade-in">
+        <h3>Performance Score Boxplot</h3>
+        <div class="chart">{{ performance_chart | safe }}</div>
+      </div>
+
+      <div class="chart-container fade-in">
+        <h3>Training vs Performance Boxplot</h3>
+        <div class="chart">{{ training_boxplot | safe }}</div>
+      </div>
+
+      <div class="chart-container fade-in">
+        <h3>Productivity Score Histogram</h3>
+        <div class="chart">{{ productivity_hist | safe }}</div>
+      </div>
+
+      <div class="chart-container fade-in">
+        <h3>Training vs Performance Joint Plot</h3>
+        <div class="chart">{{ joint_plot | safe }}</div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="dashboard-footer">
+    <p>&copy; 2025 Employee Analytics. All Rights Reserved.</p>
+  </footer>
+
+  <script src="../static/control.js"></script>
+</body>
+</html>
