@@ -4,9 +4,13 @@ Objective of this project is to analyze and visualize employee productivity metr
 
 **Tools Used:** Python (pandas, numpy, Matplotlib, Seaborn, scikit-learn), Jupyter Notebook
 
+---
+
 **Dataset Attribution:**
 Dataset sourced from Kaggle: [Employee Performance and Productivity Data](https://www.kaggle.com/datasets/mexwell/employee-performance-and-productivity-data)  
 CSV files located in `data/raw/` and cleaned data in `data/cleaned/`.
+
+---
 
 **Key Features and Analysis Steps:**
 1. **Data Cleaning:** Handle missing values, normalize time tracking data, and encode categorical variables.
@@ -15,8 +19,10 @@ CSV files located in `data/raw/` and cleaned data in `data/cleaned/`.
 4. **Predictive Modeling:** Build and evaluate a regression model to forecast future productivity levels (`models/productivity_model.pkl`).
 5. **Reporting:** Export key findings to PowerPoint slides and interactive dashboards in Jupyter Notebook.
 
+---
+
 For detailed EDA and methodology, see `Analysis.ipynb`.
 
-## Footer
+---
 
 © 2025 Girish Shenoy.
